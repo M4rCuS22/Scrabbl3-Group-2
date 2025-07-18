@@ -5,6 +5,14 @@ import TileTrack from './components/TileTrack'
 import './styles/App.css'
 
 function App() {
+  // State to track the currently dragged tile
+  const [draggedTile, setDraggedTile] = useState(null);
+  
+  // Handle tile being dragged from rack
+  const handleTileDragged = (tile, index) => {
+    setDraggedTile({ tile, rackIndex: index });
+  };
+  
   return (
     <div className="scrabble-app">
       <header className="app-header">
@@ -12,7 +20,7 @@ function App() {
       </header>
       
       <GameBoard />
-      <PlayerRack />
+      <PlayerRack onTileDragged={handleTileDragged} />
       <TileTrack />
     </div>
   )
