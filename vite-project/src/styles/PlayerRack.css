@@ -42,6 +42,11 @@
   cursor: grabbing;
 }
 
+.player-tile.dragging {
+  opacity: 0.6;
+  transform: scale(0.95);
+}
+
 .tile-letter {
   font-size: 1.5rem;
   font-weight: bold;
