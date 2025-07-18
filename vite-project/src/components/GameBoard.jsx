@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/GameBoard.css';
 
 const GameBoard = () => {
+  // State to track placed tiles on the board
+  const [boardTiles, setBoardTiles] = useState({});
   // Define special squares on the board
   const specialSquares = {
     // Triple Word Score
@@ -76,6 +78,40 @@ const GameBoard = () => {
     '7,7': { type: 'star', label: '★' }
   };
 
+  // Handle drag over event
+  const handleDragOver = (e) => {
+    // Prevent default to allow drop
+    e.preventDefault();
+    // Add a visual indicator for drop target
+    e.target.classList.add('drag-over');
+  };
+  
+  // Handle drag leave event
+  const handleDragLeave = (e) => {
+    // Remove the visual indicator
+    e.target.classList.remove('drag-over');
+  };
+  
+  // Handle drop event
+  const handleDrop = (e, row, col) => {
+    e.preventDefault();
+    e.target.classList.remove('drag-over');
+    
+    // Get the tile data from the drag event
+    const tileIndex = e.dataTransfer.getData('tileIndex');
+    const letter = e.dataTransfer.getData('tileLetter');
+    const points = e.dataTransfer.getData('tilePoints');
+    
+    if (!letter) return; // Ensure we have valid data
+    
+    // Update the board state with the new tile
+    const key = `${row},${col}`;
+    setBoardTiles(prev => ({
+      ...prev,
+      [key]: { letter, points }
+    }));
+  };
+  
   // Create the 15x15 board
   const renderBoard = () => {
     const board = [];
@@ -84,15 +120,24 @@ const GameBoard = () => {
       for (let col = 0; col < 15; col++) {
         const key = `${row},${col}`;
         const special = specialSquares[key] || { type: 'regular', label: '' };
+        const tile = boardTiles[key];
         
         board.push(
           <div 
             key={key} 
-            className={`board-square ${special.type}`}
+            className={`board-square ${special.type} ${tile ? 'has-tile' : ''}`}
             data-row={row}
             data-col={col}
+            onDragOver={handleDragOver}
+            onDragLeave={handleDragLeave}
+            onDrop={(e) => handleDrop(e, row, col)}
           >
-            {special.label}
+            {tile ? (
+              <div className="board-tile">
+                <span className="board-tile-letter">{tile.letter}</span>
+                <span className="board-tile-points">{tile.points}</span>
+              </div>
+            ) : special.label}
           </div>
         );
       }
