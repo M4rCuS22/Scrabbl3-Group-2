@@ -1,0 +1,75 @@
+.game-board-container {
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  margin: 30px auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  max-width: 650px;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  grid-template-rows: repeat(15, 1fr);
+  gap: 2px;
+  background-color: #333;
+  padding: 2px;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.board-square {
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: bold;
+  background-color: #e8dcb5; /* Default square color */
+  color: #555;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.board-square:hover {
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+/* Special squares */
+.tw {
+  background-color: #e63946; /* Triple Word Score - Red */
+  color: white;
+}
+
+.dw {
+  background-color: #ffb4a2; /* Double Word Score - Pink */
+  color: #6d6875;
+}
+
+.tl {
+  background-color: #457b9d; /* Triple Letter Score - Dark Blue */
+  color: white;
+}
+
+.dl {
+  background-color: #a8dadc; /* Double Letter Score - Light Blue */
+  color: #1d3557;
+}
+
+.star {
+  background-color: #ffb4a2; /* Center Star - Pink like DW */
+  color: #e63946;
+  font-size: 1.2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .game-board {
+    gap: 1px;
+  }
+  
+  .board-square {
+    font-size: 0.6rem;
+  }
+}
