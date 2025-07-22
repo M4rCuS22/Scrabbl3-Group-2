@@ -28,7 +28,7 @@ A web-based implementation of the classic Scrabble word game built with React an
    ```
    npm install
    ```
-3. Start the development server:
+3. Start the development server
    ```
    npm run dev
    ```
