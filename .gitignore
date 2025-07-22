@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Logs
 logs
 *.log
@@ -17,8 +18,38 @@ dist-ssr
 !.vscode/extensions.json
 .idea
 .DS_Store
+=======
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Build files
+/dist
+/.parcel-cache
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+>>>>>>> 9b42e2c9120a28f03fdc92ee3e8cb34f0d1c352d
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
+<<<<<<< HEAD
 *.sw?
+=======
+*.sw?
+>>>>>>> 9b42e2c9120a28f03fdc92ee3e8cb34f0d1c352d
