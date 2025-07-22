@@ -1,55 +1,12 @@
-# Scrabble Game Project
+# React + Vite
 
-A web-based implementation of the classic Scrabble word game built with React and Vite.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Features
+Currently, two official plugins are available:
 
-- 15x15 game board with special squares (double/triple letter/word scores)
-- Tile distribution with correct letter counts and point values
-- Interactive gameplay (in development)
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Project Structure
+## Expanding the ESLint configuration
 
-- `src/components/GameBoard.jsx` - The 15x15 Scrabble board component
-- `src/components/TileTrack.jsx` - Component for displaying available letter tiles
-- `src/components/PlayerRack.jsx` - Component for the player's current 7 tiles
-- `src/data/tileDistribution.js` - Data for Scrabble letter distribution and points
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js and npm installed
-
-### Installation
-
-1. Clone the repository
-2. Install dependencies:
-   ```
-   npm install
-   ```
-3. Start the development server
-   ```
-   npm run dev
-   ```
-4. Open your browser to `http://localhost:5173`
-
-## Development Tasks
-
-- [x] Create tile track and letter distribution
-- [x] Implement 15x15 board layout
-- [ ] Add drag and drop functionality for tiles
-- [ ] Implement game logic and scoring
-- [ ] Add multiplayer functionality
-- [ ] Add tutorial/how to play section
-
-## Team Members
-
-- Member 1
-- Member 2
-- Member 3
-- Member 4
-
-## Design Resources
-
-- Figma design for the 15x15 board layout (link to be added)
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
